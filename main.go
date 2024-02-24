@@ -242,9 +242,15 @@ func main() {
 				nextMark()
 			} else if ev.Rune() == 'n' {
 				nextMark()
+				if currentMark < 0 {
+					break
+				}
 				buf.currentOffset = marks[currentMark].coords
 			} else if ev.Rune() == 'p' {
 				prevMark()
+				if currentMark < 0 {
+					break
+				}
 				buf.currentOffset = marks[currentMark].coords
 			}
 		}
