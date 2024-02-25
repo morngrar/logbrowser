@@ -62,6 +62,11 @@ func readFileToBuf(path string) (*Buffer, error) {
 
 func renderViewPort(s tcell.Screen, style tcell.Style, buf *Buffer) {
 	_, h := s.Size()
+
+	if h > len(buf.lines) {
+		h = len(buf.lines)
+	}
+
 	for y := 0; y < h; y++ {
 		lineIndex := buf.currentOffset.y + y
 		drawLine(s, buf.currentOffset.x, y, style, buf.lines[lineIndex])
