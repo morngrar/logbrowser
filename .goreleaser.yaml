@@ -9,7 +9,7 @@
 version: 1
 
 signs:
-  - artifacts: binary
+  - artifacts: all
 
 before:
   hooks:
