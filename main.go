@@ -178,6 +178,9 @@ func main() {
 			} else if ev.Rune() == ' ' {
 				_, h := s.Size()
 				buf.currentOffset.y += h - 1
+				if buf.currentOffset.y+h >= len(buf.lines) {
+					buf.currentOffset.y = len(buf.lines) - h
+				}
 			} else if ev.Rune() == 'b' {
 				_, h := s.Size()
 				buf.currentOffset.y -= h - 1
